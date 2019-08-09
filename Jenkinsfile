@@ -17,7 +17,7 @@ node () {
     stage('Initialize'){
         def dockerHome = tool 'Docker'
         def mavenHome  = tool 'Maven 3.6.1'
-        env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
+        env.PATH = "${dockerHome}:${mavenHome}/bin:${env.PATH}"
     }
 
     stage('Clone repository') {
