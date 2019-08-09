@@ -21,13 +21,7 @@ node () {
     }
 
     stage('Clone repository') {
-                checkout([$class: 'GitSCM', 
-                branches: [[name: '*/master']], 
-                doGenerateSubmoduleConfigurations: false, 
-                extensions: [], 
-                submoduleCfg: [], 
-                userRemoteConfigs: 
-                [[url: 'https://github.com/keertisurapaneni/Jenkins-Docker.git']]])
+                checkout scm
        shortCommit = bat(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
     }
  
