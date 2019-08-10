@@ -27,7 +27,7 @@ node () {
  
 
     stage('Build image') {
-     container = sudo docker.build('visibilityspots/jenkins-docker')
+     container = docker.build('visibilityspots/jenkins-docker')
     // sh 'docker build -t "visibilityspots/jenkins-docker" .'
        }
   
