@@ -22,7 +22,6 @@ node () {
 
     stage('Clone repository') {
                 checkout scm
-       shortCommit = bat(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
     }
  
 
@@ -38,7 +37,6 @@ node () {
 
     stage('Push image') {
       docker.withRegistry('$NEXUS_URL', '$NEXUS_CREDENTIAL_ID') {
-        container.push("${shortCommit}")
         container.push('latest')
       }
     }
